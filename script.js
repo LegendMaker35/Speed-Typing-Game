@@ -6,6 +6,8 @@ const startButton = document.getElementById('startButton')
 
 let countdown
 let timeLeft = 60
+let totalCharactersTyped = 0
+let totalMistakes = 0
 
 startButton.addEventListener('click', () => {
     resetGame()
@@ -29,6 +31,8 @@ function resetGame() {
     quoteInputElement.disabled = true
     quoteDisplayElement.innerHTML = ''
     startButton.disabled = false
+    totalCharactersTyped = 0
+    totalMistakes = 0
 }
 
 function startCountdown() {
@@ -45,17 +49,23 @@ function startCountdown() {
         if(timeLeft <= 0 ) {
             timerElement.classList.remove('warning')
             clearInterval(countdown)
-            alert('Time is up! Resetting Game.')
+            showAccuracy()
             resetGame()
         }
     }, 1000)
 }
 
+function showAccuracy() {
+    const accuracy = ((totalCharactersTyped - totalMistakes) / totalCharactersTyped) * 100
+    alert(`Time's up! Accuracy: ${accuracy.toFixed(2)}%`);
+
+}
 
 quoteInputElement.addEventListener('input', () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span')
     const arrayValue = quoteInputElement.value.split('')
 
+    totalCharactersTyped++
 
     let correct = true
     arrayQuote.forEach((characterSpan, index) => {
@@ -71,19 +81,17 @@ quoteInputElement.addEventListener('input', () => {
         } else {
             characterSpan.classList.remove('correct')
             characterSpan.classList.add('incorrect')
+            totalMistakes++
             correct = false
         }
 
     })
 
-    if (correct) renderNewQuote()
+    if (arrayValue.length === arrayQuote.length) {
+        renderNewQuote()
+    }
 })
 
-function getRandomQuote()  {
-    return fetch(RANDOM_QUOTE_API_URL)
-    .then(Response => Response.json())
-    .then(data => data.content)
-}
 
 async function renderNewQuote() {
     const quote = await getRandomQuote()
@@ -94,4 +102,10 @@ async function renderNewQuote() {
         quoteDisplayElement.appendChild(characterSpan)
     })
     quoteInputElement.value = null
+}
+
+function getRandomQuote()  {
+    return fetch(RANDOM_QUOTE_API_URL)
+    .then(Response => Response.json())
+    .then(data => data.content)
 }
