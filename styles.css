@@ -84,4 +84,24 @@ body, .quote-input {
     color: red;
     font-weight: bold;
 }
+
+.accuracy-box {
+    display: inline-block;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #1E0555;
+    font-weight: bold;
+}
+
+.accuracy-box.show {
+    display: block;
+}
+
+.stats-container {
+    margin-top: 2rem;
+    text-align: center;
+}
     
