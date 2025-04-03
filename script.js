@@ -55,7 +55,7 @@ function showAccuracy() {
     const accuracy = ((totalCharactersTyped - totalMistakes) / totalCharactersTyped) * 100 || 0;
     accuracyBox.innerText = `Accuracy: ${accuracy.toFixed(2)}%`;
     //quoteCompletedBox.innerText = `Quotes Completed: ${quoteCompleted}`;
-    score = (accuracy/100) * correctCharactersTyped + (quoteCompleted*100);
+    score = (accuracy/100) * correctCharactersTyped + (quoteCompleted*1000);
     scoreBox.innerText = `Score: ${score.toFixed(0)}`;
 }
 
@@ -95,7 +95,7 @@ quoteInputElement.addEventListener('input', () => {
         } else if (character === characterSpan.innerText) {
             characterSpan.classList.add('correct');
             characterSpan.classList.remove('incorrect');
-            //correctCharactersTyped++; (Not correct placement. Adds 1, then 2, then 3, and so on...)
+            correctCharactersTyped++; //(Not correct placement. Adds 1, then 2, then 3, and so on...)
         } else {
             characterSpan.classList.remove('correct');
             characterSpan.classList.add('incorrect');
