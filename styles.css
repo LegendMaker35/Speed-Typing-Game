@@ -97,8 +97,39 @@ body, .quote-input {
     font-weight: bold;
 }
 
-
 .accuracy-box.show {
+    display: block;
+}
+
+.quote-completed-box {
+    margin-top: 2rem; /* Add spacing directly above the accuracy box */
+    display: inline-block;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #1E0555;
+    font-weight: bold;
+}
+
+.quote-completed-box.show {
+    display: block;
+}
+
+.score-box {
+    margin-top: 2rem; /* Add spacing directly above the accuracy box */
+    display: inline-block;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #1E0555;
+    font-weight: bold;
+}
+
+.score-box.show {
     display: block;
 }
 

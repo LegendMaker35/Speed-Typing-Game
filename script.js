@@ -4,11 +4,16 @@ const quoteInputElement = document.getElementById('quoteInput');
 const timerElement = document.getElementById('timer');
 const startButton = document.getElementById('startButton');
 const accuracyBox = document.getElementById('accuracyBox'); // Correct reference
+const quoteCompletedBox = document.getElementById('quoteCompletedBox');
+const scoreBox = document.getElementById('scoreBox');
 
 let countdown;
-let timeLeft = 60;
+let timeLeft = 60; // Change back to 60
 let totalCharactersTyped = 0;
 let totalMistakes = 0;
+let correctCharactersTyped = 0;
+let quoteCompleted = 0;
+let score = 0;
 let gameRunning = false;
 
 startButton.addEventListener('click', () => {
@@ -49,6 +54,9 @@ function resetGame() {
 function showAccuracy() {
     const accuracy = ((totalCharactersTyped - totalMistakes) / totalCharactersTyped) * 100 || 0;
     accuracyBox.innerText = `Accuracy: ${accuracy.toFixed(2)}%`;
+    //quoteCompletedBox.innerText = `Quotes Completed: ${quoteCompleted}`;
+    score = (accuracy/100) * correctCharactersTyped + (quoteCompleted*100);
+    scoreBox.innerText = `Score: ${score.toFixed(0)}`;
 }
 
 function startCountdown() {
@@ -87,6 +95,7 @@ quoteInputElement.addEventListener('input', () => {
         } else if (character === characterSpan.innerText) {
             characterSpan.classList.add('correct');
             characterSpan.classList.remove('incorrect');
+            //correctCharactersTyped++; (Not correct placement. Adds 1, then 2, then 3, and so on...)
         } else {
             characterSpan.classList.remove('correct');
             characterSpan.classList.add('incorrect');
@@ -96,6 +105,8 @@ quoteInputElement.addEventListener('input', () => {
 
     if (arrayValue.length === arrayQuote.length) {
         renderNewQuote();
+        quoteCompleted++;
+        quoteCompletedBox.innerText = `Quotes Completed: ${quoteCompleted}`;
     }
 });
 
