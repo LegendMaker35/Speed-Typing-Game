@@ -1,8 +1,7 @@
 Upload All Files into a Code Editor.
-I personally used vss and then run with live server, however I also tested this on https://onecompiler.com/html  and it worked for me there as well
-
-Currently this is very basic
-
-But feel free to play around and test it
-
-Currently does use quotes API
+Tested and ran on VS code:
+Steps to run:
+1. import all files into VS code
+2. Right click on index.html
+3. Click Open with Live Server
+4. Enjoy!
