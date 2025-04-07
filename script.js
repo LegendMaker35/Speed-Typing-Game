@@ -139,8 +139,10 @@ submitScoreBtn.addEventListener('click', async () => {
     if (!playerName) {
         alert('Please enter your name.');
         return;
-        playerNameInput.value = ''; // Clear input after submission
+        
     } 
+
+    playerNameInput.value = ''; // Clear input after submission
 
     const scoreData = {
         name: playerName,
@@ -148,7 +150,7 @@ submitScoreBtn.addEventListener('click', async () => {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/savescores', {
+        const response = await fetch('http://localhost:3000/savescore', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -168,7 +170,7 @@ playerNameInput.value = ''; // Clear input after submission
 
     showScoresBtn.addEventListener('click', async () => {
         try {
-            const response = await fetch('http://localhost:3000/highscores');
+            const response = await fetch('http://localhost:3000/highscore');
             const scores = await response.json();
             highScoresDiv.innerHTML = '<h2>High Scores</h2>' +
              scores.map((entry, i) => `<p>${i + 1}. ${entry.name}: ${entry.score}</p>`).join('');
