@@ -170,7 +170,7 @@ playerNameInput.value = ''; // Clear input after submission
 
     showScoresBtn.addEventListener('click', async () => {
         try {
-            const response = await fetch('http://localhost:3000/highscore');
+            const response = await fetch('http://localhost:3000/highscores');
             const scores = await response.json();
             highScoresDiv.innerHTML = '<h2>High Scores</h2>' +
              scores.map((entry, i) => `<p>${i + 1}. ${entry.name}: ${entry.score}</p>`).join('');

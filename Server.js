@@ -19,6 +19,7 @@ db.run(`CREATE TABLE IF NOT EXISTS scores (
 
 // Save a score
 app.post('/savescore', (req, res) => {
+    console.log('Incoming score submission:', req.body);
     const { name, score } = req.body;
     db.run(`INSERT INTO scores (name, score) VALUES (?, ?)`, [name, score], (err) => {
         if (err) return res.status(500).json({ message: 'Failed to save score' });
