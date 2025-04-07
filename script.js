@@ -25,7 +25,7 @@ startButton.addEventListener('click', () => {
         resetGame();
         startGame();
         startButton.innerText = 'Reset';
-        gameRunning = true;
+    gameRunning = true;
     }
 });
 
@@ -126,3 +126,54 @@ function getRandomQuote() {
         .then(response => response.json())
         .then(data => data.content);
 }
+
+//backend integration for score submission and display//
+
+const submitScoreBtn = document.getElementById('submitScore');
+const playerNameInput = document.getElementById('playerName');
+const showScoresBtn = document.getElementById('showScores');
+const highScoresDiv = document.getElementById('highScores');
+
+submitScoreBtn.addEventListener('click', async () => {
+    const playerName = playerNameInput.value.trim();
+    if (!playerName) {
+        alert('Please enter your name.');
+        return;
+        playerNameInput.value = ''; // Clear input after submission
+    } 
+
+    const scoreData = {
+        name: playerName,
+        score: Math.round(score), // Ensure score is a number
+    };
+
+    try {
+        const response = await fetch('http://localhost:3000/savescores', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(scoreData),
+        });
+        
+        const result = await response.json();
+        alert(result.message); // Show success message
+playerNameInput.value = ''; // Clear input after submission
+    }
+    catch (error) {
+        console.error('Error submitting score:', error);
+            alert('Error submitting score. Please try again.');
+        }
+    });
+
+    showScoresBtn.addEventListener('click', async () => {
+        try {
+            const response = await fetch('http://localhost:3000/highscores');
+            const scores = await response.json();
+            highScoresDiv.innerHTML = '<h2>High Scores</h2>' +
+             scores.map((entry, i) => `<p>${i + 1}. ${entry.name}: ${entry.score}</p>`).join('');
+        } catch (error) {
+            console.error('Error fetching high scores:', error);
+            alert('Error fetching high scores. Please try again.');
+        }
+});
