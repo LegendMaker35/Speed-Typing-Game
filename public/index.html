@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Speed Typing Game</title>
+</head>
+<body>
+    <div class="timer" id="timer">60</div>
+    <div class="container">
+        <div class="quote-display" id="quoteDisplay"></div>
+        <textarea id="quoteInput" class ="quote-input" autofocus disabled>You will have 60 seconds to type as many quotes as you can!</textarea>
+        <button id="startButton" class = "start-button">Start</button>
+    </div>
+    <div id="statsContainer" class="stats-container">
+        <div id="accuracyBox" class="accuracy-box">Accuracy: N/A</div>
+        <div id="quoteCompletedBox" class="quote-completed-box">Quotes Completed: N/A</div>
+        <div id="scoreBox" class="score-box">Score: N/A</div>
+    </div>
+
+    <!-- New section: score submission and high score -->
+    <div style="text-align: center; margin-top: 1rem;">
+        <input type="text" id="playerName" placeholder="Enter your name" style="padding: 0.5rem; font-size: 1rem;">
+        <button id="submitScore" class="start-button">Submit Score</button>
+        <button id="showScores" class="start-button">Show High Scores</button>
+    </div>
+    <div id="highScores" style="text-align: center; margin-top: 1rem; color: white;"></div>
+
+        
+
+
+</body>
+</html>

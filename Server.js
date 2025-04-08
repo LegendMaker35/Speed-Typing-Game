@@ -1,11 +1,18 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 8000;
+require('dotenv').config();
 
+//middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+//routes
+app.use('/api/scores', require('./routes/scores'));
 
 // Connect or create SQLite DB
 const db = new sqlite3.Database('./scores.db');
@@ -28,13 +35,16 @@ app.post('/savescore', (req, res) => {
 });
 
 // Get top scores
-app.get('/highscores', (req, res) => {
+app.get('/api/highscores', (req, res) => {
     db.all(`SELECT name, score FROM scores ORDER BY score DESC LIMIT 10`, [], (err, rows) => {
         if (err) return res.status(500).json({ message: 'Failed to fetch scores' });
         res.json(rows);
     });
 });
 
+
+//starts the server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
+

@@ -4,7 +4,8 @@
   "description": "Upload All Files into a Code Editor. Tested and ran on VS code: Steps to run: 1. import all files into VS code 2. Right click on index.html 3. Click Open with Live Server 4. Enjoy!",
   "main": "script.js",
   "scripts": {
-    "start": "concurrently \"nodemon Server.js\" \"live-server --port=5500 --open=index.html\""
+      "start": "node Server.js",
+      "dev": "nodemon Server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,11 @@
     "concurrently": "^9.1.2",
     "live-server": "^1.2.2",
     "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
   }
 }

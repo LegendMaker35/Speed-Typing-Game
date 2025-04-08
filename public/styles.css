@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #1E0555;
+}
+
+body, .quote-input {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container {
+    background-color: #f0db4f;
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 700px;
+    max-width: 90%;
+}
+
+.timer {
+    position: absolute;
+    top: 2rem;
+    font-size: 3rem;
+    color: #f0d84f;
+    font-weight: bold;
+}
+
+.quote-display {
+    margin-bottom: 1rem;
+    margin-left: calc(1rem + 2px);
+    margin-right: calc(1rem + 2px);
+}
+
+.quote-input {
+    background-color: transparent;
+    border: 2px solid #a1922e;
+    outline: none;
+    width: 100%;
+    height: 8rem;
+    margin: auto;
+    resize: none;
+    padding: .5rem 1rem;
+    font-size: 1rem;
+    border-radius: .5rem
+    ;
+}
+
+.quote-input:focus {
+    border-color: black;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
+
+.start-button {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    background-color: #d4b647;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.start-button:hover {
+    background-color: #ffd700;
+}
+
+.warning {
+    color: red;
+    font-weight: bold;
+}
+
+.accuracy-box {
+    margin-top: 2rem; /* Add spacing directly above the accuracy box */
+    display: inline-block;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #1E0555;
+    font-weight: bold;
+}
+
+.accuracy-box.show {
+    display: block;
+}
+
+.quote-completed-box {
+    margin-top: 2rem; /* Add spacing directly above the accuracy box */
+    display: inline-block;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #1E0555;
+    font-weight: bold;
+}
+
+.quote-completed-box.show {
+    display: block;
+}
+
+.score-box {
+    margin-top: 2rem; /* Add spacing directly above the accuracy box */
+    display: inline-block;
+    padding: 1rem;
+    background-color: #f0f0f0;
+    border: 2px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    color: #1E0555;
+    font-weight: bold;
+}
+
+.score-box.show {
+    display: block;
+}
+
+.stats-container {
+    margin-top: rem;
+    text-align: center;
+}
+    
