@@ -11,7 +11,7 @@ How to Set Up:
 3. Open a CMD terminal inside VS Code.
 
 4. Run this to install dependencies:
-   npm install express sqlite3 cors dotenv
+   npm install passport passport-google-oauth20 express-session
 
 5. Start the game with:
    npm start
