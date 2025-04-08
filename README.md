@@ -10,13 +10,12 @@ How to Set Up:
 2. Open the folder in VS Code.
 3. Open a CMD terminal inside VS Code.
 
-4. Run this to install dependencies:
-   npm install passport passport-google-oauth20 express-session
+4. Run this to install dependencies: npm install express sqlite3 cors dotenv
 
 5. Start the game with:
    npm start
 
-6. On Browser open localhost:8000
+7. On Browser open localhost:8000
 
 What this does:
 - Runs the Node.js backend server (on port 3000)
