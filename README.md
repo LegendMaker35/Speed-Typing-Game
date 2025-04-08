@@ -119,7 +119,7 @@ Just download the project and double-click `setup.bat`. It will:
 
 ---
 
-## 📜 License
+## License
 
 MIT — Remix, reuse, and hack away!
 
