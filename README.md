@@ -20,17 +20,12 @@ A fast-paced web-based typing game where you race against the clock to type rand
 ###  Requirements
 - [Node.js](https://nodejs.org/) installed
 - Internet connection (for fetching quotes)
-(Optional for Google Sign-In): A Google Cloud project with OAuth 2.0 credentials configured:
-
-Go to Google Cloud Console
-
-Enable OAuth 2.0 Client IDs
-
-Set Authorized Origin to http://localhost:8000
-
-Set Redirect URI to http://localhost:8000/auth/google/callback
-
-Add credentials to your .env file
+- (Optional for Google Sign-In): A Google Cloud project with OAuth 2.0 credentials configured:
+    - Go to Google Cloud Console
+    - Enable OAuth 2.0 Client IDs
+    - Set Authorized Origin to http://localhost:8000
+    - Set Redirect URI to http://localhost:8000/auth/google/callback
+    - Add credentials to your .env file
 
 ---
 
