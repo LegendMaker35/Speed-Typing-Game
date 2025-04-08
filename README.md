@@ -8,7 +8,7 @@ How to Set Up:
 
 1. Unzip the folder anywhere on your computer.
 2. Open the folder in VS Code.
-3. Open a terminal inside VS Code.
+3. Open a CMD terminal inside VS Code.
 
 4. Run this to install dependencies:
    npm install
@@ -27,3 +27,8 @@ Once the game is open:
 
 To reset scores:
 (Optional) Delete the `scores.db` file if you want a fresh leaderboard.
+
+To end game:
+- In CMD terminal, click ctrl + C
+- Type Y to terminate batch job
+- close vs code
