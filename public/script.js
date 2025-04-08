@@ -179,3 +179,18 @@ playerNameInput.value = ''; // Clear input after submission
             alert('Error fetching high scores. Please try again.');
         }
 });
+
+fetch('/auth/user')
+  .then(res => {
+    if (!res.ok) throw new Error();
+    return res.json();
+  })
+  .then(data => {
+    console.log('Signed in as:', data.displayName);
+    document.getElementById('playerName').value = data.displayName;
+    document.getElementById('playerName').disabled = true;
+  })
+  .catch(() => {
+    console.log('Not signed in. User will input their name manually.');
+  });
+
