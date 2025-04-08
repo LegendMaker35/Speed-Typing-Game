@@ -1,36 +1,49 @@
 @echo off
-echo --------------------------------------------------
-echo        Welcome to Speed Typing Game Setup
-echo --------------------------------------------------
+setlocal enabledelayedexpansion
 
-:: Check for Node
-node -v >nul 2>&1
+title Speed Typing Game Setup
+
+echo ==================================================
+echo        Speed Typing Game - First Time Setup
+echo ==================================================
+
+:: Check Node.js
+where node >nul 2>&1
 IF %ERRORLEVEL% NEQ 0 (
-    echo Node.js is not installed. Please install it from https://nodejs.org and re-run this script.
+    echo  Node.js not found. Please install it from:
+    echo    https://nodejs.org
     pause
     exit /b
 )
 
 :: Install dependencies
-echo Installing project dependencies...
-npm install
+echo  Installing dependencies...
+call npm install >nul 2>&1
 
-:: Check if .env exists
-IF NOT EXIST .env (
-    echo Creating default .env file...
-    copy .env.example .env
+IF %ERRORLEVEL% NEQ 0 (
+    echo  Failed to install dependencies. Check your npm setup.
+    pause
+    exit /b
 )
 
-:: Start the server in a new command window
-start cmd /k "npm run dev"
+:: Create .env file if it doesn't exist
+IF NOT EXIST .env (
+    echo  Creating .env from template...
+    copy env.example .env >nul
+)
 
-:: Open the game in the default browser
-timeout /t 2 >nul
+:: Start the server in a new terminal
+echo  Starting the server...
+start "Typing Game Server" cmd /k "npm start"
+
+:: Wait 3 seconds for server to initialize
+timeout /t 3 >nul
+
+:: Open browser
+echo  Opening game in browser...
 start http://localhost:8000
 
-echo --------------------------------------------------
-echo Game is launching in your browser!
-echo If the server window doesn't appear, check npm errors.
-echo --------------------------------------------------
-
+echo ==================================================
+echo  Setup complete. Your game should be running!
+echo ==================================================
 pause
