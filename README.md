@@ -79,7 +79,7 @@ Just download the project and double-click `setup.bat`. It will:
 
 ---
 
-## 🛡 Tech Stack
+## Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Node.js + Express
