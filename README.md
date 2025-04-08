@@ -61,6 +61,15 @@ Just download the project and double-click `setup.bat`. It will:
 - Works offline with manual name entry if no login
 
 ---
+##  To Close Game
+
+- Simply Close Browser tab or window.
+- To stop the server:
+    - In terminal window "npm start" type ctrl + C
+    - Type Y to Terminate batch job
+    - Close "npm start" and "npm install" terminal windows
+
+---
 
 ##  Deployment Details
 
