@@ -21,8 +21,16 @@ IF NOT EXIST .env (
     copy .env.example .env
 )
 
-:: Start the app
-echo Starting the game...
-npm run dev
+:: Start the server in a new command window
+start cmd /k "npm run dev"
+
+:: Open the game in the default browser
+timeout /t 2 >nul
+start http://localhost:8000
+
+echo --------------------------------------------------
+echo Game is launching in your browser!
+echo If the server window doesn't appear, check npm errors.
+echo --------------------------------------------------
 
 pause
