@@ -16,7 +16,7 @@ How to Set Up:
 5. Start the game with:
    npm start
 
-6.On Browser open localhost:8000
+6. On Browser open localhost:8000
 
 What this does:
 - Runs the Node.js backend server (on port 3000)
