@@ -12,10 +12,13 @@ A fast-paced web-based typing game where you race against the clock to type rand
 -  Fetches random quotes from [Quotable.io](https://api.quotable.io)
 -  Fully Express-based backend with RESTful API
 -  Play as a guest or a signed-in user
+-  Can access the game from the web
 
 ---
 
 ##  How to Run It Locally
+
+- go to: https://speed-typing-game-imal.onrender.com/
 
 ###  Requirements
 - [Node.js](https://nodejs.org/) installed
