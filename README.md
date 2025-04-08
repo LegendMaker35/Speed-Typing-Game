@@ -18,7 +18,9 @@ A fast-paced web-based typing game where you race against the clock to type rand
 
 ##  How to Run It Locally
 
-- go to: https://speed-typing-game-imal.onrender.com/
+- To just play game go to: https://speed-typing-game-imal.onrender.com/
+  
+- If you want to run locally continue below
 
 ###  Requirements
 - [Node.js](https://nodejs.org/) installed
