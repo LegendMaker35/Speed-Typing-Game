@@ -9,7 +9,7 @@ A fast-paced web-based typing game where you race against the clock to type rand
 -  Optional **Google Sign-In** using OAuth 2.0
 -  High score tracking with SQLite
 -  Accuracy & speed scoring system
--  Fetches random quotes from [Quotable.io](https://api.quotable.io)
+-  Fetches random quotes from [Zenquotes.io]((https://zenquotes.io/api/random))
 -  Fully Express-based backend with RESTful API
 -  Play as a guest or a signed-in user
 -  Can access the game from the web
