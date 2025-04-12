@@ -1,4 +1,4 @@
-const RANDOM_QUOTE_API_URL = 'http://api.quotable.io/random';
+const RANDOM_QUOTE_API_URL = 'https://api.quotable.io/random';
 const quoteDisplayElement = document.getElementById('quoteDisplay');
 const quoteInputElement = document.getElementById('quoteInput');
 const timerElement = document.getElementById('timer');
@@ -150,7 +150,7 @@ submitScoreBtn.addEventListener('click', async () => {
     };
 
     try {
-        const response = await fetch('http://localhost:3000/savescore', {
+        const response = await fetch('/savescore', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ playerNameInput.value = ''; // Clear input after submission
 
     showScoresBtn.addEventListener('click', async () => {
         try {
-            const response = await fetch('http://localhost:3000/highscores');
+            const response = await fetch('/api/highscores');
             const scores = await response.json();
             highScoresDiv.innerHTML = '<h2>High Scores</h2>' +
              scores.map((entry, i) => `<p>${i + 1}. ${entry.name}: ${entry.score}</p>`).join('');
@@ -179,3 +179,18 @@ playerNameInput.value = ''; // Clear input after submission
             alert('Error fetching high scores. Please try again.');
         }
 });
+
+fetch('/auth/user')
+  .then(res => {
+    if (!res.ok) throw new Error();
+    return res.json();
+  })
+  .then(data => {
+    console.log('Signed in as:', data.displayName);
+    document.getElementById('playerName').value = data.displayName;
+    document.getElementById('playerName').disabled = true;
+  })
+  .catch(() => {
+    console.log('Not signed in. User will input their name manually.');
+  });
+
